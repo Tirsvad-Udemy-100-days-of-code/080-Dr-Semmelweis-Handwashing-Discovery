@@ -12,7 +12,9 @@ from __future__ import annotations
 import argparse
 import logging
 from collections.abc import Callable
-from importlib import resources
+
+# Python 3.13+ is required; the rule targets Python 2 compatibility.
+from importlib import resources  # nosemgrep: python37-compatibility-importlib2
 from pathlib import Path
 
 import matplotlib
