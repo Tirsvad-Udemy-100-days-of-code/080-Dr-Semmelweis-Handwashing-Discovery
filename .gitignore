@@ -1,4 +1,31 @@
-# Minimal baseline; the full Python .gitignore comes with MIL-001.
+# Secrets and local environment
 .env
 .venv/
+venv/
+
+# AI prompt log (the repository is public)
 /docs/ai-prompts/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Doxygen output
+/docs/doxygen/
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

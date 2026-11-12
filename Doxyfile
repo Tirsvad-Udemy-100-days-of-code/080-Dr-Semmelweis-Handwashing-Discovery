@@ -1,0 +1,21 @@
+# Doxygen configuration for the Day 80 project (Python sources).
+# Run from the repository root:  doxygen Doxyfile   (output: docs/doxygen/html)
+PROJECT_NAME           = "Dr Semmelweis Handwashing Discovery"
+PROJECT_BRIEF          = "Udemy 100 Days of Code, Day 80"
+OUTPUT_DIRECTORY       = docs/doxygen
+INPUT                  = src README.md
+FILE_PATTERNS          = *.py *.md
+RECURSIVE              = YES
+EXCLUDE_PATTERNS       = */data/* */__pycache__/*
+OPTIMIZE_OUTPUT_JAVA   = YES
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+AUTOLINK_SUPPORT       = YES
+JAVADOC_AUTOBRIEF      = YES
+MARKDOWN_SUPPORT       = YES
+USE_MDFILE_AS_MAINPAGE = README.md
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+HAVE_DOT               = NO
+QUIET                  = YES
+WARN_IF_UNDOCUMENTED   = YES
