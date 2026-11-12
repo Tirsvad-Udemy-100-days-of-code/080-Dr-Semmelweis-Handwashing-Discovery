@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-12 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-11-12 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [42ea7f9] |
 
 ---
 
@@ -58,3 +58,4 @@ Go — every applicable criterion of [QC-PY-001] is Pass or N-A. The review is b
 ---
 
 [QC-PY-001]: ../../../framework/qc/code/qc-programming-python.md
+[42ea7f9]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/080-Dr-Semmelweis-Handwashing-Discovery/commit/42ea7f9ab9f6008764a750bdaaf2910806e11482
