@@ -140,3 +140,27 @@ DISTRIBUTION_TITLE_FONT_SIZE: Final[int] = 12
 BOX_PLOT_WIDTH: Final[float] = 0.5
 STEP_5_NAME: Final[str] = "step-5-distributions"
 ## @}
+
+## @name Learning points and summary (lecture 596)
+## @{
+SUMMARY_TITLE: Final[str] = "Day 80: Learning Points and Summary"
+SUMMARY_FIGURE_SIZE: Final[tuple[float, float]] = (13.0, 5.0)
+SUMMARY_WIDTH_RATIOS: Final[tuple[int, int]] = (5, 6)
+SUMMARY_HEADING: Final[str] = "Headline results"
+SUMMARY_CHART_TITLE: Final[str] = "Monthly death rate and 6-month rolling average"
+SUMMARY_TEXT_FONT_SIZE: Final[int] = 14
+SUMMARY_HEADING_FONT_SIZE: Final[int] = 15
+SUMMARY_TEXT_X: Final[float] = 0.02
+SUMMARY_HEADING_Y: Final[float] = 0.95
+SUMMARY_TEXT_Y: Final[float] = 0.82
+SUMMARY_LINE_SPACING: Final[float] = 1.9
+SUMMARY_BOX_COLOR: Final[str] = "whitesmoke"
+SUMMARY_CHART_FONT_SIZE: Final[int] = 11
+SUMMARY_LINE_BEFORE: Final[str] = "Death rate before handwashing: {:.2f}%"
+SUMMARY_LINE_AFTER: Final[str] = "Death rate after handwashing: {:.2f}%"
+SUMMARY_LINE_FACTOR: Final[str] = "Improvement factor: {:.1f}x lower"
+SUMMARY_LINE_T_STATISTIC: Final[str] = "t statistic: {:.2f}"
+SUMMARY_LINE_P_VALUE: Final[str] = "p-value: {:.2e}"
+SUMMARY_LINE_SIGNIFICANT: Final[str] = "Significant at the {:.0%} level: {}"
+STEP_6_NAME: Final[str] = "step-6-summary"
+## @}
