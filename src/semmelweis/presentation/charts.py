@@ -5,8 +5,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.axes import Axes
 from matplotlib.figure import Figure
+from matplotlib.ticker import MaxNLocator
 
 from semmelweis import constants
+from semmelweis.domain.clinic_split import add_pct_deaths, clinic_rows
 
 
 def _style_value_axis(ax: Axes, label: str, color: str) -> None:
@@ -61,5 +63,115 @@ def births_and_deaths_chart(monthly: pd.DataFrame) -> Figure:
         labelsize=constants.TICK_FONT_SIZE,
         labelrotation=constants.TICK_ROTATION,
     )
+    fig.tight_layout()
+    return fig
+
+
+def _draw_clinic_lines(ax: Axes, yearly: pd.DataFrame, column: str, title: str) -> None:
+    """@brief Draw one line per clinic on an axis.
+
+    @param ax The axis.
+    @param yearly The yearly table.
+    @param column Column drawn on the y-axis.
+    @param title Title of the axis.
+    """
+    for clinic in constants.CLINICS:
+        rows = clinic_rows(yearly, clinic)
+        ax.plot(
+            rows[constants.COL_YEAR],
+            rows[column],
+            color=constants.CLINIC_COLORS[clinic],
+            linewidth=constants.CLINIC_LINEWIDTH,
+            label=clinic,
+        )
+    ax.set_title(title, fontsize=constants.CHART_TITLE_FONT_SIZE)
+    ax.set_xlabel(constants.LABEL_YEAR, fontsize=constants.AXIS_LABEL_FONT_SIZE)
+    ax.set_ylabel(column, fontsize=constants.AXIS_LABEL_FONT_SIZE)
+    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+    ax.grid(color=constants.GRID_COLOR, linestyle=constants.GRID_LINESTYLE)
+    ax.legend(fontsize=constants.CLINIC_LEGEND_FONT_SIZE)
+
+
+def yearly_line_chart(yearly: pd.DataFrame, column: str, title: str) -> Figure:
+    """@brief Draw one yearly column as a line per clinic (lecture 593).
+
+    @param yearly The yearly table.
+    @param column Column drawn on the y-axis.
+    @param title Title of the chart.
+    @return The figure; the caller shows or saves it.
+    """
+    fig, ax = plt.subplots(figsize=constants.FIGURE_SIZE, dpi=constants.FIGURE_DPI)
+    _draw_clinic_lines(ax, yearly, column, title)
+    fig.tight_layout()
+    return fig
+
+
+def births_by_clinic_chart(yearly: pd.DataFrame) -> Figure:
+    """@brief Draw the yearly births of each clinic.
+
+    @param yearly The yearly table.
+    @return The figure.
+    """
+    return yearly_line_chart(
+        yearly, constants.COL_BIRTHS, constants.TITLE_BIRTHS_BY_CLINIC
+    )
+
+
+def deaths_by_clinic_chart(yearly: pd.DataFrame) -> Figure:
+    """@brief Draw the yearly deaths of each clinic.
+
+    @param yearly The yearly table.
+    @return The figure.
+    """
+    return yearly_line_chart(
+        yearly, constants.COL_DEATHS, constants.TITLE_DEATHS_BY_CLINIC
+    )
+
+
+def _with_pct_deaths(yearly: pd.DataFrame) -> pd.DataFrame:
+    """@brief Return the table with the pct_deaths column present.
+
+    @param yearly The yearly table.
+    @return The same table when it has the column, else a copy that has it.
+    """
+    if constants.COL_PCT_DEATHS in yearly.columns:
+        return yearly
+    return add_pct_deaths(yearly)
+
+
+def pct_deaths_by_clinic_chart(yearly: pd.DataFrame) -> Figure:
+    """@brief Draw the yearly proportion of deaths of each clinic.
+
+    @param yearly The yearly table; pct_deaths is added when missing.
+    @return The figure.
+    """
+    return yearly_line_chart(
+        _with_pct_deaths(yearly),
+        constants.COL_PCT_DEATHS,
+        constants.TITLE_PCT_DEATHS_BY_CLINIC,
+    )
+
+
+def clinic_overview_chart(yearly: pd.DataFrame) -> Figure:
+    """@brief Draw births, deaths and proportion of deaths side by side.
+
+    @param yearly The yearly table; pct_deaths is added when missing.
+    @return A figure with three axes.
+    """
+    data = _with_pct_deaths(yearly)
+    fig, axes = plt.subplots(
+        1,
+        3,
+        figsize=constants.CLINIC_OVERVIEW_FIGURE_SIZE,
+        dpi=constants.FIGURE_DPI,
+    )
+    panels = (
+        (constants.COL_BIRTHS, constants.TITLE_BIRTHS_BY_CLINIC),
+        (constants.COL_DEATHS, constants.TITLE_DEATHS_BY_CLINIC),
+        (constants.COL_PCT_DEATHS, constants.TITLE_PCT_DEATHS_BY_CLINIC),
+    )
+    for ax, (column, title) in zip(axes, panels, strict=True):
+        _draw_clinic_lines(ax, data, column, title)
+        ax.title.set_fontsize(constants.CLINIC_OVERVIEW_TITLE_FONT_SIZE)
     fig.tight_layout()
     return fig

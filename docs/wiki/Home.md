@@ -9,5 +9,6 @@ Day 80 of Udemy's *100 Days of Code*: you become Dr Ignaz Semmelweis, a physicia
 | [Getting started](Getting-Started) | A `.venv`, the install, and how to run, test and check the project on Linux and Windows |
 | [Step 1: Day 80 goals](Step-1-Goals) | What the story is, what you will learn, and which data the project uses |
 | [Step 2: Preliminary data exploration](Step-2-Data-Exploration) | What is in the data, is it clean, and how dangerous was childbirth in the 1840s? |
+| [Step 3: The yearly data split by clinic](Step-3-Clinic-Split) | Which clinic was busier, and which one was more dangerous? |
 
 The question of the assignment: did making doctors wash their hands in 1847 change how many women died in childbirth, and is the change more than chance?

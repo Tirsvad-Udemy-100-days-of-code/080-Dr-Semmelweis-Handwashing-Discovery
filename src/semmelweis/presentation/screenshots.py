@@ -28,7 +28,10 @@ from semmelweis.infrastructure.csv_loader import (  # noqa: E402
     load_monthly,
     load_yearly,
 )
-from semmelweis.presentation.charts import births_and_deaths_chart  # noqa: E402
+from semmelweis.presentation.charts import (  # noqa: E402
+    births_and_deaths_chart,
+    clinic_overview_chart,
+)
 
 _LOG = logging.getLogger(__name__)
 DEFAULT_OUTPUT_DIR = Path(*constants.IMAGES_DIR)
@@ -89,9 +92,18 @@ def step_2_data_exploration() -> Figure:
     return births_and_deaths_chart(load_monthly())
 
 
+def step_3_clinic_split() -> Figure:
+    """@brief Draw the yearly data split by clinic (lecture 593).
+
+    @return A figure with births, deaths and proportion of deaths per clinic.
+    """
+    return clinic_overview_chart(load_yearly())
+
+
 STEPS: dict[str, Callable[[], Figure]] = {
     constants.STEP_1_NAME: step_1_goals,
     constants.STEP_2_NAME: step_2_data_exploration,
+    constants.STEP_3_NAME: step_3_clinic_split,
 }
 
 

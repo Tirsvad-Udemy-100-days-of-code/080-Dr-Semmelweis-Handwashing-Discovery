@@ -20,4 +20,4 @@
 - Peratusan ialah satu jumlah dibahagi satu jumlah, darab 100.
 - `.twinx()` membolehkan dua siri dengan skala berbeza berkongsi satu paksi-x, dan `MonthLocator` serta `YearLocator` menjadikan paksi masa mudah dibaca.
 
-Sebelumnya: [Step-1-Goals-ms](Step-1-Goals-ms)
+Sebelumnya: [Step-1-Goals-ms](Step-1-Goals-ms) · Seterusnya: [Step-3-Clinic-Split-ms](Step-3-Clinic-Split-ms)

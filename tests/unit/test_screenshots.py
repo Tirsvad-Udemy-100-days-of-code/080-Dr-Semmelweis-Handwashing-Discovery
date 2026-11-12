@@ -17,6 +17,17 @@ def test_step_2_data_exploration_draws_twin_axes() -> None:
     assert len(fig.axes) == 2
 
 
+def test_step_3_clinic_split_draws_three_axes() -> None:
+    """@brief Step 3 draws births, deaths and proportion of deaths."""
+    fig = screenshots.step_3_clinic_split()
+    assert len(fig.axes) == 3
+
+
+def test_steps_include_clinic_split() -> None:
+    """@brief Step 3 is registered under its name."""
+    assert "step-3-clinic-split" in screenshots.STEPS
+
+
 def test_steps_include_data_exploration() -> None:
     """@brief Step 2 is registered under its name."""
     assert "step-2-data-exploration" in screenshots.STEPS
