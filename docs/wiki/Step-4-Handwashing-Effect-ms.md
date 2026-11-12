@@ -21,4 +21,4 @@
 - Purata bergerak menunjukkan arah aliran di sebalik nilai bulanan yang berubah-ubah.
 - Mewarnakan kedua-dua tempoh secara berbeza dan menambah legenda menjadikan perbandingan sebelum dan selepas mudah dibaca sepintas lalu.
 
-Sebelumnya: [Step-3-Clinic-Split-ms](Step-3-Clinic-Split-ms)
+Sebelumnya: [Step-3-Clinic-Split-ms](Step-3-Clinic-Split-ms) · Seterusnya: [Step-5-Distributions-ms](Step-5-Distributions-ms)

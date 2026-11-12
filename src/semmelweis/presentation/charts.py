@@ -1,7 +1,10 @@
 """@brief Charts drawn for the lectures."""
 
+from typing import Final
+
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 from matplotlib.axes import Axes
 from matplotlib.figure import Figure
@@ -9,7 +12,12 @@ from matplotlib.ticker import MaxNLocator, PercentFormatter
 
 from semmelweis import constants
 from semmelweis.domain.clinic_split import add_pct_deaths, clinic_rows
-from semmelweis.domain.handwashing import rolling_average, split_before_after
+from semmelweis.domain.handwashing import (
+    add_pct_deaths_monthly,
+    rolling_average,
+    split_before_after,
+)
+from semmelweis.domain.significance import add_washing_hands, kde_curve
 
 
 def _style_value_axis(ax: Axes, label: str, color: str) -> None:
@@ -237,5 +245,178 @@ def handwashing_chart(monthly: pd.DataFrame) -> Figure:
     ax.yaxis.set_major_formatter(PercentFormatter(xmax=1))
     ax.grid(color=constants.GRID_COLOR, linestyle=constants.GRID_LINESTYLE)
     ax.legend(fontsize=constants.HANDWASHING_LEGEND_FONT_SIZE)
+    fig.tight_layout()
+    return fig
+
+
+_GROUP_STYLES: Final[tuple[tuple[str, str], ...]] = (
+    (constants.LABEL_WITHOUT_HANDWASHING, constants.COLOR_BEFORE_HANDWASHING),
+    (constants.LABEL_WITH_HANDWASHING, constants.COLOR_AFTER_HANDWASHING),
+)
+
+
+def _death_rate_groups(monthly: pd.DataFrame) -> tuple[pd.Series, pd.Series]:
+    """@brief Split the monthly proportion of deaths by handwashing.
+
+    @param monthly The monthly table; pct_deaths is added when missing.
+    @return The values without and the values with handwashing.
+    """
+    data = (
+        monthly
+        if constants.COL_PCT_DEATHS in monthly.columns
+        else add_pct_deaths_monthly(monthly)
+    )
+    marked = add_washing_hands(data)
+    is_washing = marked[constants.COL_WASHING_HANDS]
+    rates = marked[constants.COL_PCT_DEATHS]
+    return rates[~is_washing], rates[is_washing]
+
+
+def _finish_distribution_axis(ax: Axes, title: str, x_label: str, y_label: str) -> None:
+    """@brief Title, label and add a legend to a distribution axis.
+
+    @param ax The axis.
+    @param title Title of the axis.
+    @param x_label Text of the x label.
+    @param y_label Text of the y label.
+    """
+    ax.set_title(title, fontsize=constants.CHART_TITLE_FONT_SIZE)
+    ax.set_xlabel(x_label, fontsize=constants.AXIS_LABEL_FONT_SIZE)
+    ax.set_ylabel(y_label, fontsize=constants.AXIS_LABEL_FONT_SIZE)
+    ax.tick_params(labelsize=constants.TICK_FONT_SIZE)
+    ax.grid(color=constants.GRID_COLOR, linestyle=constants.GRID_LINESTYLE)
+
+
+def _draw_box_plot(ax: Axes, monthly: pd.DataFrame) -> None:
+    """@brief Draw the box plot of the death rate by handwashing.
+
+    @param ax The axis.
+    @param monthly The monthly table.
+    """
+    without, with_washing = _death_rate_groups(monthly)
+    ax.boxplot(
+        [without, with_washing],
+        tick_labels=[constants.LABEL_NO, constants.LABEL_YES],
+        widths=constants.BOX_PLOT_WIDTH,
+    )
+    _finish_distribution_axis(
+        ax,
+        constants.TITLE_BOX_PLOT,
+        constants.LABEL_WASHING_HANDS,
+        constants.LABEL_PCT_DEATHS,
+    )
+    ax.yaxis.set_major_formatter(PercentFormatter(xmax=1))
+
+
+def _draw_histograms(ax: Axes, monthly: pd.DataFrame) -> None:
+    """@brief Draw the superimposed histograms of both periods.
+
+    @param ax The axis.
+    @param monthly The monthly table.
+    """
+    groups = _death_rate_groups(monthly)
+    edges = np.histogram_bin_edges(
+        np.concatenate([g.to_numpy() for g in groups]), bins=constants.HISTOGRAM_BINS
+    )
+    for rates, (label, color) in zip(groups, _GROUP_STYLES, strict=True):
+        weights = np.full(len(rates), constants.PERCENT / len(rates))
+        ax.hist(
+            rates,
+            bins=edges,
+            weights=weights,
+            alpha=constants.HISTOGRAM_ALPHA,
+            color=color,
+            label=label,
+        )
+    _finish_distribution_axis(
+        ax,
+        constants.TITLE_HISTOGRAM,
+        constants.LABEL_PCT_DEATHS,
+        constants.LABEL_PERCENT_OF_MONTHS,
+    )
+    ax.xaxis.set_major_formatter(PercentFormatter(xmax=1))
+    ax.legend(fontsize=constants.DISTRIBUTION_LEGEND_FONT_SIZE)
+
+
+def _draw_kde(ax: Axes, monthly: pd.DataFrame) -> None:
+    """@brief Draw the density estimate of each period inside its data range.
+
+    @param ax The axis.
+    @param monthly The monthly table.
+    """
+    for rates, (label, color) in zip(
+        _death_rate_groups(monthly), _GROUP_STYLES, strict=True
+    ):
+        grid, density = kde_curve(rates)
+        ax.plot(
+            grid, density, color=color, linewidth=constants.KDE_LINEWIDTH, label=label
+        )
+        ax.fill_between(grid, density, color=color, alpha=constants.KDE_FILL_ALPHA)
+    _finish_distribution_axis(
+        ax,
+        constants.TITLE_KDE,
+        constants.LABEL_PCT_DEATHS,
+        constants.LABEL_DENSITY,
+    )
+    ax.xaxis.set_major_formatter(PercentFormatter(xmax=1))
+    ax.legend(fontsize=constants.DISTRIBUTION_LEGEND_FONT_SIZE)
+
+
+def box_plot_chart(monthly: pd.DataFrame) -> Figure:
+    """@brief Draw a box plot of the death rate with and without handwashing.
+
+    @param monthly The monthly table; pct_deaths is added when missing.
+    @return The figure; the caller shows or saves it.
+    """
+    fig, ax = plt.subplots(figsize=constants.FIGURE_SIZE, dpi=constants.FIGURE_DPI)
+    _draw_box_plot(ax, monthly)
+    fig.tight_layout()
+    return fig
+
+
+def histogram_overlay_chart(monthly: pd.DataFrame) -> Figure:
+    """@brief Draw both periods as superimposed, percent-normalised histograms.
+
+    @param monthly The monthly table; pct_deaths is added when missing.
+    @return The figure.
+    """
+    fig, ax = plt.subplots(figsize=constants.FIGURE_SIZE, dpi=constants.FIGURE_DPI)
+    _draw_histograms(ax, monthly)
+    fig.tight_layout()
+    return fig
+
+
+def kde_chart(monthly: pd.DataFrame) -> Figure:
+    """@brief Draw the kernel density estimate of both periods.
+
+    @param monthly The monthly table; pct_deaths is added when missing.
+    @return The figure; no density is drawn outside the data range.
+    """
+    fig, ax = plt.subplots(figsize=constants.FIGURE_SIZE, dpi=constants.FIGURE_DPI)
+    _draw_kde(ax, monthly)
+    fig.tight_layout()
+    return fig
+
+
+def distributions_overview_chart(monthly: pd.DataFrame) -> Figure:
+    """@brief Draw the box plot, the histograms and the KDE side by side.
+
+    @param monthly The monthly table; pct_deaths is added when missing.
+    @return A figure with three axes.
+    """
+    fig, axes = plt.subplots(
+        1,
+        3,
+        figsize=constants.DISTRIBUTION_FIGURE_SIZE,
+        dpi=constants.FIGURE_DPI,
+    )
+    for ax, draw in zip(
+        axes, (_draw_box_plot, _draw_histograms, _draw_kde), strict=True
+    ):
+        draw(ax, monthly)
+        ax.title.set_fontsize(constants.DISTRIBUTION_TITLE_FONT_SIZE)
+        ax.xaxis.label.set_fontsize(constants.DISTRIBUTION_TITLE_FONT_SIZE)
+        ax.yaxis.label.set_fontsize(constants.DISTRIBUTION_TITLE_FONT_SIZE)
+        ax.tick_params(labelsize=constants.DISTRIBUTION_LEGEND_FONT_SIZE)
     fig.tight_layout()
     return fig

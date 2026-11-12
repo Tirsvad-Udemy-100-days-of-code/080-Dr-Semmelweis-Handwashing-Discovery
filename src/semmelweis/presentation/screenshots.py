@@ -31,6 +31,7 @@ from semmelweis.infrastructure.csv_loader import (  # noqa: E402
 from semmelweis.presentation.charts import (  # noqa: E402
     births_and_deaths_chart,
     clinic_overview_chart,
+    distributions_overview_chart,
     handwashing_chart,
 )
 
@@ -109,11 +110,20 @@ def step_4_handwashing_effect() -> Figure:
     return handwashing_chart(load_monthly())
 
 
+def step_5_distributions() -> Figure:
+    """@brief Draw the distributions of the monthly death rate (lecture 595).
+
+    @return A figure with the box plot, the histograms and the KDE.
+    """
+    return distributions_overview_chart(load_monthly())
+
+
 STEPS: dict[str, Callable[[], Figure]] = {
     constants.STEP_1_NAME: step_1_goals,
     constants.STEP_2_NAME: step_2_data_exploration,
     constants.STEP_3_NAME: step_3_clinic_split,
     constants.STEP_4_NAME: step_4_handwashing_effect,
+    constants.STEP_5_NAME: step_5_distributions,
 }
 
 

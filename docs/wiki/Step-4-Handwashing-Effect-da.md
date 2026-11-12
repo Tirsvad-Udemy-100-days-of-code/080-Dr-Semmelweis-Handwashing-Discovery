@@ -21,4 +21,4 @@
 - Et glidende gennemsnit viser tendensen gennem støjende månedsværdier.
 - At farve de to perioder forskelligt og tilføje en signaturforklaring gør en før-og-efter-sammenligning læsbar med et blik.
 
-Forrige: [Step-3-Clinic-Split-da](Step-3-Clinic-Split-da)
+Forrige: [Step-3-Clinic-Split-da](Step-3-Clinic-Split-da) · Næste: [Step-5-Distributions-da](Step-5-Distributions-da)

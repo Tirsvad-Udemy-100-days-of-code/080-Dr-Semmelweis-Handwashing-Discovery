@@ -11,5 +11,6 @@ Hari ke-80 *100 Days of Code* Udemy: anda menjadi Dr Ignaz Semmelweis, pakar per
 | [Langkah 2: Penerokaan data awal](Step-2-Data-Exploration-ms) | Apa yang ada dalam data, adakah ia bersih, dan betapa bahayanya bersalin pada tahun 1840-an |
 | [Langkah 3: Data tahunan dipecahkan mengikut klinik](Step-3-Clinic-Split-ms) | Klinik manakah lebih sibuk, dan yang manakah lebih berbahaya? |
 | [Langkah 4: Kesan membasuh tangan](Step-4-Handwashing-Effect-ms) | Adakah membasuh tangan mengurangkan kadar wanita yang meninggal dunia? |
+| [Langkah 5: Taburan dan signifikans statistik](Step-5-Distributions-ms) | Adakah penurunan kadar kematian benar atau kebetulan? |
 
 Soalan tugasan: adakah mewajibkan doktor mencuci tangan pada tahun 1847 mengubah bilangan wanita yang meninggal ketika bersalin, dan adakah perubahan itu lebih daripada kebetulan?

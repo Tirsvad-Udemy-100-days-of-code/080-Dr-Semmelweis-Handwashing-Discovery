@@ -30,6 +30,19 @@ def test_step_4_handwashing_effect_draws_one_axis_with_legend() -> None:
     assert fig.axes[0].get_legend() is not None
 
 
+def test_step_5_distributions_draws_three_axes_with_legends() -> None:
+    """@brief Step 5 draws the box plot, the histograms and the KDE."""
+    fig = screenshots.step_5_distributions()
+    assert len(fig.axes) == 3
+    assert fig.axes[1].get_legend() is not None
+    assert fig.axes[2].get_legend() is not None
+
+
+def test_steps_include_distributions() -> None:
+    """@brief Step 5 is registered under its name."""
+    assert "step-5-distributions" in screenshots.STEPS
+
+
 def test_steps_include_handwashing_effect() -> None:
     """@brief Step 4 is registered under its name."""
     assert "step-4-handwashing-effect" in screenshots.STEPS
