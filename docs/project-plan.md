@@ -11,7 +11,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-12 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version, accepted by S01 as Product Owner in chat on 2026-11-12 | pending |
+| 2026-11-12 | Accepted | Jens Tirsvad Nielsen | AI as stand-in for S01 | Initial version, accepted by S01 as Product Owner in chat on 2026-11-12 | [ec941c9] |
 
 ---
 
@@ -93,3 +93,4 @@ A No-Go on a gateway moves every later date by the rework time.
 [MIL-004]: ./milestones/mil-004-lecture-594-handwashing-effect.md
 [MIL-005]: ./milestones/mil-005-lecture-595-distributions-significance.md
 [MIL-006]: ./milestones/mil-006-lecture-596-summary-release.md
+[ec941c9]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/080-Dr-Semmelweis-Handwashing-Discovery/commit/ec941c902d71a90670b723ceb117c73121ec236c

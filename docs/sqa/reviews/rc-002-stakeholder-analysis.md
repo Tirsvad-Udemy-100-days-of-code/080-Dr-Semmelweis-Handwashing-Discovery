@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-12 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-11-12 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [ec941c9] |
 
 ---
 
@@ -66,3 +66,4 @@ Go — every criterion of [QC-SA-001] and [QC-LANG-001] is Pass. The review is b
 [SA-001]: ../../../docs/stakeholder-analysis.md
 [QC-SA-001]: ../../../framework/qc/artifacts/qc-stakeholder-analysis.md
 [QC-LANG-001]: ../../../framework/qc/artifacts/qc-language-domain.md
+[ec941c9]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/080-Dr-Semmelweis-Handwashing-Discovery/commit/ec941c902d71a90670b723ceb117c73121ec236c

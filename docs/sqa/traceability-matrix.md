@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-12 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | pending |
+| 2026-11-12 | Proposed | Jens Tirsvad Nielsen | S01 | Initial version | [ec941c9] |
 
 ---
 
@@ -66,3 +66,4 @@ Tracks backward and forward links between artifact instances so that traceabilit
 [MIL-005]: ../milestones/mil-005-lecture-595-distributions-significance.md
 [MIL-006]: ../milestones/mil-006-lecture-596-summary-release.md
 [ADR-0001]: ../adr/adr-0001-skip-use-case-artifacts.md
+[ec941c9]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/080-Dr-Semmelweis-Handwashing-Discovery/commit/ec941c902d71a90670b723ceb117c73121ec236c
