@@ -79,3 +79,18 @@ TABLE_ROW_SCALE: Final[float] = 1.6
 STEP_1_NAME: Final[str] = "step-1-goals"
 STEP_2_NAME: Final[str] = "step-2-data-exploration"
 ## @}
+
+## @name Clinic split (lecture 593)
+## @{
+CLINICS: Final[tuple[str, str]] = (CLINIC_1, CLINIC_2)
+CLINIC_COLORS: Final[dict[str, str]] = {CLINIC_1: "crimson", CLINIC_2: "steelblue"}
+CLINIC_LINEWIDTH: Final[int] = 3
+LABEL_YEAR: Final[str] = "Year"
+TITLE_BIRTHS_BY_CLINIC: Final[str] = "Total Yearly Births by Clinic"
+TITLE_DEATHS_BY_CLINIC: Final[str] = "Total Yearly Deaths by Clinic"
+TITLE_PCT_DEATHS_BY_CLINIC: Final[str] = "Proportion of Yearly Deaths by Clinic"
+CLINIC_OVERVIEW_FIGURE_SIZE: Final[tuple[float, float]] = (15.0, 4.8)
+CLINIC_OVERVIEW_TITLE_FONT_SIZE: Final[int] = 12
+CLINIC_LEGEND_FONT_SIZE: Final[int] = 10
+STEP_3_NAME: Final[str] = "step-3-clinic-split"
+## @}

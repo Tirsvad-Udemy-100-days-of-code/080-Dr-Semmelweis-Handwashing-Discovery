@@ -20,4 +20,4 @@
 - En procentdel er en sum divideret med en sum, gange 100.
 - `.twinx()` lader to dataserier med forskellig skala dele én x-akse, og `MonthLocator` og `YearLocator` gør en tidsakse læsbar.
 
-Forrige: [Step-1-Goals-da](Step-1-Goals-da)
+Forrige: [Step-1-Goals-da](Step-1-Goals-da) · Næste: [Step-3-Clinic-Split-da](Step-3-Clinic-Split-da)

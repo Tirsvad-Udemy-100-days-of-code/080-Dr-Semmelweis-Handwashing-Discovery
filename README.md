@@ -30,6 +30,7 @@ The project follows the six lecture steps of Day 80 (lectures 591 to 596). Each 
 | --- | --- | --- |
 | 591 Day 80 goals | [Step 1](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/080-Dr-Semmelweis-Handwashing-Discovery/wiki/Step-1-Goals) | ![Step 1: the two data tables](docs/images/step-1-goals.png) |
 | 592 Preliminary data exploration | [Step 2](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/080-Dr-Semmelweis-Handwashing-Discovery/wiki/Step-2-Data-Exploration) | ![Step 2: monthly births and deaths on twin axes](docs/images/step-2-data-exploration.png) |
+| 593 The yearly data split by clinic | [Step 3](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/080-Dr-Semmelweis-Handwashing-Discovery/wiki/Step-3-Clinic-Split) | ![Step 3: births, deaths and the proportion of deaths per clinic](docs/images/step-3-clinic-split.png) |
 
 The data and the start notebook come from the course resources and are used here for personal study; the rights stay with the course author.
 

@@ -20,4 +20,4 @@
 - A percentage is a sum divided by a sum, times 100.
 - `.twinx()` lets two series with different scales share one x axis, and `MonthLocator` and `YearLocator` make a time axis readable.
 
-Previous: [Step-1-Goals](Step-1-Goals)
+Previous: [Step-1-Goals](Step-1-Goals) · Next: [Step-3-Clinic-Split](Step-3-Clinic-Split)
