@@ -19,4 +19,4 @@ Lecture 591 tells the story of Dr Ignaz Semmelweis (born 1818), who worked at th
 - How to highlight different parts of a time series chart in Matplotlib, and add a legend.
 - How to use NumPy's `where()` to process elements depending on a condition.
 
-Next: Step 2 (added with lecture 592).
+Next: [Step-2-Data-Exploration](Step-2-Data-Exploration)

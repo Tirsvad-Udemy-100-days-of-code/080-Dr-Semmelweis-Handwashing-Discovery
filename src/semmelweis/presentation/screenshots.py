@@ -12,9 +12,6 @@ from __future__ import annotations
 import argparse
 import logging
 from collections.abc import Callable
-
-# Python 3.13+ is required; the rule targets Python 2 compatibility.
-from importlib import resources  # nosemgrep: python37-compatibility-importlib2
 from pathlib import Path
 
 import matplotlib
@@ -27,20 +24,14 @@ from matplotlib.axes import Axes  # noqa: E402
 from matplotlib.figure import Figure  # noqa: E402
 
 from semmelweis import constants  # noqa: E402
+from semmelweis.infrastructure.csv_loader import (  # noqa: E402
+    load_monthly,
+    load_yearly,
+)
+from semmelweis.presentation.charts import births_and_deaths_chart  # noqa: E402
 
 _LOG = logging.getLogger(__name__)
 DEFAULT_OUTPUT_DIR = Path(*constants.IMAGES_DIR)
-
-
-def _read_data_file(file_name: str) -> pd.DataFrame:
-    """@brief Read one of the CSV files shipped with the package.
-
-    @param file_name Name of the file in the data package.
-    @return The file as a DataFrame.
-    """
-    path = resources.files(constants.DATA_PACKAGE).joinpath(file_name)
-    with resources.as_file(path) as real_path:
-        return pd.read_csv(real_path)
 
 
 def _draw_table(ax: Axes, frame: pd.DataFrame, title: str) -> None:
@@ -71,8 +62,8 @@ def step_1_goals() -> Figure:
 
     @return A figure with the first rows of the yearly and the monthly table.
     """
-    yearly = _read_data_file(constants.YEARLY_FILE)
-    monthly = _read_data_file(constants.MONTHLY_FILE)
+    yearly = load_yearly()
+    monthly = load_monthly()
     fig, (left, right) = plt.subplots(
         1,
         2,
@@ -90,8 +81,17 @@ def step_1_goals() -> Figure:
     return fig
 
 
+def step_2_data_exploration() -> Figure:
+    """@brief Draw monthly births and deaths (lecture 592).
+
+    @return The twin-axis line chart.
+    """
+    return births_and_deaths_chart(load_monthly())
+
+
 STEPS: dict[str, Callable[[], Figure]] = {
     constants.STEP_1_NAME: step_1_goals,
+    constants.STEP_2_NAME: step_2_data_exploration,
 }
 
 
