@@ -20,4 +20,4 @@
 - A rate for a whole group is the sum of its deaths divided by the sum of its births, not the average of the yearly rates.
 - One line per group, with a legend, is the simplest way to compare groups over time.
 
-Previous: [Step-2-Data-Exploration](Step-2-Data-Exploration)
+Previous: [Step-2-Data-Exploration](Step-2-Data-Exploration) · Next: [Step-4-Handwashing-Effect](Step-4-Handwashing-Effect)

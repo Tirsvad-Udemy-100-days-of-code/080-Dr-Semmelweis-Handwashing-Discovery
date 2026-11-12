@@ -20,4 +20,4 @@
 - En rate for en hel gruppe er summen af dens dødsfald divideret med summen af dens fødsler, ikke gennemsnittet af de årlige rater.
 - Én linje pr. gruppe med en signaturforklaring er den enkleste måde at sammenligne grupper over tid.
 
-Forrige: [Step-2-Data-Exploration-da](Step-2-Data-Exploration-da)
+Forrige: [Step-2-Data-Exploration-da](Step-2-Data-Exploration-da) · Næste: [Step-4-Handwashing-Effect-da](Step-4-Handwashing-Effect-da)

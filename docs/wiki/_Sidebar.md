@@ -5,6 +5,7 @@
 - [Step 1 Goals](Step-1-Goals)
 - [Step 2 Data Exploration](Step-2-Data-Exploration)
 - [Step 3 Clinic Split](Step-3-Clinic-Split)
+- [Step 4 Handwashing Effect](Step-4-Handwashing-Effect)
 
 **Languages**
 
