@@ -94,3 +94,27 @@ CLINIC_OVERVIEW_TITLE_FONT_SIZE: Final[int] = 12
 CLINIC_LEGEND_FONT_SIZE: Final[int] = 10
 STEP_3_NAME: Final[str] = "step-3-clinic-split"
 ## @}
+
+## @name Handwashing effect (lecture 594)
+## @{
+COL_ROLLING_PCT_DEATHS: Final[str] = "rolling_pct_deaths"
+TITLE_HANDWASHING: Final[str] = (
+    "Percentage of Monthly Deaths over Time (before and after handwashing)"
+)
+LABEL_PCT_DEATHS: Final[str] = "Percentage of Monthly Deaths"
+LABEL_MONTH: Final[str] = "Month"
+LABEL_BEFORE_HANDWASHING: Final[str] = "Before handwashing"
+LABEL_AFTER_HANDWASHING: Final[str] = "After handwashing"
+LABEL_ROLLING_AVERAGE: Final[str] = "6-month rolling average"
+LABEL_HANDWASHING_START: Final[str] = "Handwashing made mandatory"
+COLOR_BEFORE_HANDWASHING: Final[str] = "crimson"
+COLOR_AFTER_HANDWASHING: Final[str] = "steelblue"
+COLOR_ROLLING_AVERAGE: Final[str] = "black"
+COLOR_HANDWASHING_START: Final[str] = "grey"
+LINEWIDTH_PCT_DEATHS: Final[int] = 2
+LINEWIDTH_ROLLING_AVERAGE: Final[int] = 3
+LINESTYLE_ROLLING_AVERAGE: Final[str] = "--"
+LINESTYLE_HANDWASHING_START: Final[str] = ":"
+HANDWASHING_LEGEND_FONT_SIZE: Final[int] = 14
+STEP_4_NAME: Final[str] = "step-4-handwashing-effect"
+## @}

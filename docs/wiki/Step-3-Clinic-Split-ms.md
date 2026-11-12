@@ -20,4 +20,4 @@
 - Kadar bagi seluruh kumpulan ialah jumlah kematiannya dibahagi jumlah kelahirannya, bukan purata kadar tahunan.
 - Satu garisan bagi setiap kumpulan, dengan legenda, ialah cara paling mudah untuk membandingkan kumpulan dari semasa ke semasa.
 
-Sebelumnya: [Step-2-Data-Exploration-ms](Step-2-Data-Exploration-ms)
+Sebelumnya: [Step-2-Data-Exploration-ms](Step-2-Data-Exploration-ms) · Seterusnya: [Step-4-Handwashing-Effect-ms](Step-4-Handwashing-Effect-ms)

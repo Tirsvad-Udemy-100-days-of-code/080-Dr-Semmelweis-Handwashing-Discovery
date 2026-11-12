@@ -23,6 +23,18 @@ def test_step_3_clinic_split_draws_three_axes() -> None:
     assert len(fig.axes) == 3
 
 
+def test_step_4_handwashing_effect_draws_one_axis_with_legend() -> None:
+    """@brief Step 4 draws the time series with a legend."""
+    fig = screenshots.step_4_handwashing_effect()
+    assert len(fig.axes) == 1
+    assert fig.axes[0].get_legend() is not None
+
+
+def test_steps_include_handwashing_effect() -> None:
+    """@brief Step 4 is registered under its name."""
+    assert "step-4-handwashing-effect" in screenshots.STEPS
+
+
 def test_steps_include_clinic_split() -> None:
     """@brief Step 3 is registered under its name."""
     assert "step-3-clinic-split" in screenshots.STEPS

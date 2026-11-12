@@ -5,10 +5,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.axes import Axes
 from matplotlib.figure import Figure
-from matplotlib.ticker import MaxNLocator
+from matplotlib.ticker import MaxNLocator, PercentFormatter
 
 from semmelweis import constants
 from semmelweis.domain.clinic_split import add_pct_deaths, clinic_rows
+from semmelweis.domain.handwashing import rolling_average, split_before_after
 
 
 def _style_value_axis(ax: Axes, label: str, color: str) -> None:
@@ -173,5 +174,68 @@ def clinic_overview_chart(yearly: pd.DataFrame) -> Figure:
     for ax, (column, title) in zip(axes, panels, strict=True):
         _draw_clinic_lines(ax, data, column, title)
         ax.title.set_fontsize(constants.CLINIC_OVERVIEW_TITLE_FONT_SIZE)
+    fig.tight_layout()
+    return fig
+
+
+def _draw_period(ax: Axes, rows: pd.DataFrame, color: str, label: str) -> None:
+    """@brief Draw the monthly proportion of deaths of one period.
+
+    @param ax The axis.
+    @param rows Rows of the period, with the column pct_deaths.
+    @param color Colour of the line.
+    @param label Legend entry of the line.
+    """
+    ax.plot(
+        rows[constants.COL_DATE],
+        rows[constants.COL_PCT_DEATHS],
+        color=color,
+        linewidth=constants.LINEWIDTH_PCT_DEATHS,
+        label=label,
+    )
+
+
+def handwashing_chart(monthly: pd.DataFrame) -> Figure:
+    """@brief Draw the monthly proportion of deaths around handwashing (lecture 594).
+
+    @param monthly The monthly table; pct_deaths is added when missing.
+    @return The figure; the caller shows or saves it.
+    """
+    data = rolling_average(monthly)
+    before, after = split_before_after(data)
+    start = pd.Timestamp(constants.HANDWASHING_START)
+    fig, ax = plt.subplots(figsize=constants.FIGURE_SIZE, dpi=constants.FIGURE_DPI)
+    _draw_period(
+        ax,
+        before,
+        constants.COLOR_BEFORE_HANDWASHING,
+        constants.LABEL_BEFORE_HANDWASHING,
+    )
+    _draw_period(
+        ax, after, constants.COLOR_AFTER_HANDWASHING, constants.LABEL_AFTER_HANDWASHING
+    )
+    ax.plot(
+        data[constants.COL_DATE],
+        data[constants.COL_ROLLING_PCT_DEATHS],
+        color=constants.COLOR_ROLLING_AVERAGE,
+        linewidth=constants.LINEWIDTH_ROLLING_AVERAGE,
+        linestyle=constants.LINESTYLE_ROLLING_AVERAGE,
+        label=constants.LABEL_ROLLING_AVERAGE,
+    )
+    ax.axvline(
+        start,
+        color=constants.COLOR_HANDWASHING_START,
+        linestyle=constants.LINESTYLE_HANDWASHING_START,
+        label=constants.LABEL_HANDWASHING_START,
+    )
+    ax.set_title(constants.TITLE_HANDWASHING, fontsize=constants.CHART_TITLE_FONT_SIZE)
+    ax.set_xlabel(constants.LABEL_MONTH, fontsize=constants.AXIS_LABEL_FONT_SIZE)
+    ax.set_ylabel(constants.LABEL_PCT_DEATHS, fontsize=constants.AXIS_LABEL_FONT_SIZE)
+    ax.xaxis.set_major_locator(mdates.YearLocator())
+    ax.xaxis.set_major_formatter(mdates.DateFormatter(constants.YEAR_FORMAT))
+    ax.tick_params(labelsize=constants.TICK_FONT_SIZE)
+    ax.yaxis.set_major_formatter(PercentFormatter(xmax=1))
+    ax.grid(color=constants.GRID_COLOR, linestyle=constants.GRID_LINESTYLE)
+    ax.legend(fontsize=constants.HANDWASHING_LEGEND_FONT_SIZE)
     fig.tight_layout()
     return fig
