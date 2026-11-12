@@ -32,6 +32,7 @@ The project follows the six lecture steps of Day 80 (lectures 591 to 596). Each 
 | 592 Preliminary data exploration | [Step 2](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/080-Dr-Semmelweis-Handwashing-Discovery/wiki/Step-2-Data-Exploration) | ![Step 2: monthly births and deaths on twin axes](docs/images/step-2-data-exploration.png) |
 | 593 The yearly data split by clinic | [Step 3](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/080-Dr-Semmelweis-Handwashing-Discovery/wiki/Step-3-Clinic-Split) | ![Step 3: births, deaths and the proportion of deaths per clinic](docs/images/step-3-clinic-split.png) |
 | 594 The effect of handwashing | [Step 4](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/080-Dr-Semmelweis-Handwashing-Discovery/wiki/Step-4-Handwashing-Effect) | ![Step 4: monthly proportion of deaths with the handwashing period highlighted](docs/images/step-4-handwashing-effect.png) |
+| 595 Visualising distributions and testing for statistical significance | [Step 5](https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/080-Dr-Semmelweis-Handwashing-Discovery/wiki/Step-5-Distributions) | ![Step 5: box plot, histogram and kernel density estimate with and without handwashing](docs/images/step-5-distributions.png) |
 
 The data and the start notebook come from the course resources and are used here for personal study; the rights stay with the course author.
 

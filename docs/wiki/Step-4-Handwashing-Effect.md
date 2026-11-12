@@ -21,4 +21,4 @@
 - A rolling average shows the trend through noisy monthly values.
 - Colouring the two periods differently and adding a legend makes a before and after comparison readable at a glance.
 
-Previous: [Step-3-Clinic-Split](Step-3-Clinic-Split)
+Previous: [Step-3-Clinic-Split](Step-3-Clinic-Split) · Next: [Step-5-Distributions](Step-5-Distributions)

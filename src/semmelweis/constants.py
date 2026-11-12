@@ -118,3 +118,25 @@ LINESTYLE_HANDWASHING_START: Final[str] = ":"
 HANDWASHING_LEGEND_FONT_SIZE: Final[int] = 14
 STEP_4_NAME: Final[str] = "step-4-handwashing-effect"
 ## @}
+
+## @name Distributions and significance (lecture 595)
+## @{
+HISTOGRAM_BINS: Final[int] = 30
+HISTOGRAM_ALPHA: Final[float] = 0.6
+KDE_POINTS: Final[int] = 200
+KDE_FILL_ALPHA: Final[float] = 0.25
+KDE_LINEWIDTH: Final[int] = 3
+TITLE_BOX_PLOT: Final[str] = "Monthly Death Rate With and Without Handwashing"
+TITLE_HISTOGRAM: Final[str] = "Histogram of Monthly Death Rates (percent of months)"
+TITLE_KDE: Final[str] = "Kernel Density Estimate of Monthly Death Rates"
+LABEL_WASHING_HANDS: Final[str] = "Washing Hands?"
+LABEL_PERCENT_OF_MONTHS: Final[str] = "Percent of months"
+LABEL_DENSITY: Final[str] = "Probability density"
+LABEL_WITHOUT_HANDWASHING: Final[str] = "Without handwashing"
+LABEL_WITH_HANDWASHING: Final[str] = "With handwashing"
+DISTRIBUTION_LEGEND_FONT_SIZE: Final[int] = 11
+DISTRIBUTION_FIGURE_SIZE: Final[tuple[float, float]] = (15.0, 5.0)
+DISTRIBUTION_TITLE_FONT_SIZE: Final[int] = 12
+BOX_PLOT_WIDTH: Final[float] = 0.5
+STEP_5_NAME: Final[str] = "step-5-distributions"
+## @}
