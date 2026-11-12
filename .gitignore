@@ -1,0 +1,4 @@
+# Minimal baseline; the full Python .gitignore comes with MIL-001.
+.env
+.venv/
+/docs/ai-prompts/
