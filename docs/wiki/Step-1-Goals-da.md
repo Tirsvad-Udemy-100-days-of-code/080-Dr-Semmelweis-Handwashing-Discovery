@@ -19,4 +19,4 @@ Lektion 591 fortæller historien om Dr Ignaz Semmelweis (født 1818), der arbejd
 - Hvordan du fremhæver dele af en tidsserie i Matplotlib og tilføjer en signaturforklaring.
 - Hvordan du bruger NumPys `where()` til at behandle elementer ud fra en betingelse.
 
-Næste: Trin 2 (tilføjes med lektion 592).
+Næste: [Step-2-Data-Exploration-da](Step-2-Data-Exploration-da)

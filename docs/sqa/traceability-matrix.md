@@ -31,7 +31,7 @@ Tracks backward and forward links between artifact instances so that traceabilit
 | [MIL-005] | MIL | en | it | [BC-001], [MIL-004] | MIL-006 | RC-007 |
 | [MIL-006] | MIL | en | it | [BC-001], [MIL-005] | - | RC-008 |
 | [ADR-0001] | ADR | - | - | [BC-001], [PP-001] | - | RC-009 |
-| Source code (`src/`, `tests/`) | PY | - | - | [MIL-001] | - | RC-010 |
+| Source code (`src/`, `tests/`) | PY | - | - | [MIL-002] | - | RC-011 |
 
 ## Concern Coverage
 

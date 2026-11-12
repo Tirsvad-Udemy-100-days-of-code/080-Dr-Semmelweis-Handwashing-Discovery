@@ -8,5 +8,6 @@ Dag 80 af Udemys *100 Days of Code*: du bliver Dr Ignaz Semmelweis, læge på Wi
 | --- | --- |
 | [Kom i gang](Getting-Started-da) | Et `.venv`, installationen og hvordan du kører, tester og kontrollerer projektet på Linux og Windows |
 | [Trin 1: Dag 80 mål](Step-1-Goals-da) | Hvad historien er, hvad du lærer, og hvilke data projektet bruger |
+| [Trin 2: Indledende dataudforskning](Step-2-Data-Exploration-da) | Hvad der er i dataene, om de er rene, og hvor farligt det var at føde i 1840'erne |
 
 Opgavens spørgsmål: ændrede det i 1847, at lægerne vaskede hænder, hvor mange kvinder der døde ved fødsel, og er ændringen mere end tilfældighed?

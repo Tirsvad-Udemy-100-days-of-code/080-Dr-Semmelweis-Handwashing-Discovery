@@ -47,6 +47,22 @@ COLOR_BIRTHS: Final[str] = "skyblue"
 COLOR_DEATHS: Final[str] = "crimson"
 LINEWIDTH_BIRTHS: Final[int] = 3
 LINEWIDTH_DEATHS: Final[int] = 2
+LINESTYLE_DEATHS: Final[str] = "--"
+GRID_COLOR: Final[str] = "grey"
+GRID_LINESTYLE: Final[str] = "--"
+CHART_TITLE: Final[str] = "Total Number of Monthly Births and Deaths"
+CHART_TITLE_FONT_SIZE: Final[int] = 18
+AXIS_LABEL_FONT_SIZE: Final[int] = 18
+TICK_FONT_SIZE: Final[int] = 14
+TICK_ROTATION: Final[int] = 45
+LABEL_BIRTHS: Final[str] = "Births"
+LABEL_DEATHS: Final[str] = "Deaths"
+YEAR_FORMAT: Final[str] = "%Y"
+## @}
+
+## @name Exploration
+## @{
+PERCENT: Final[int] = 100
 ## @}
 
 ## @name Step pictures
@@ -61,4 +77,5 @@ TABLE_TITLE_PAD: Final[int] = 12
 TABLE_FONT_SIZE: Final[int] = 11
 TABLE_ROW_SCALE: Final[float] = 1.6
 STEP_1_NAME: Final[str] = "step-1-goals"
+STEP_2_NAME: Final[str] = "step-2-data-exploration"
 ## @}

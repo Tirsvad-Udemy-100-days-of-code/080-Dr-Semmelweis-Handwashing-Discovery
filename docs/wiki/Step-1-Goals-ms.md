@@ -19,4 +19,4 @@ Kuliah 591 menceritakan kisah Dr Ignaz Semmelweis (lahir 1818) yang bekerja di H
 - Cara menyerlahkan bahagian carta siri masa dalam Matplotlib dan menambah legenda.
 - Cara menggunakan `where()` NumPy untuk memproses unsur mengikut syarat.
 
-Seterusnya: Langkah 2 (ditambah bersama kuliah 592).
+Seterusnya: [Step-2-Data-Exploration-ms](Step-2-Data-Exploration-ms)
