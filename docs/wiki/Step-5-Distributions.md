@@ -21,4 +21,4 @@
 - A t-test asks whether the difference between two means is larger than chance would give; a small p-value says it is, and 0.0000003 is far below 0.01.
 - `scipy.stats.ttest_ind` by default assumes equal variances (Student's test), which is what the lecture uses; Welch's test, with `equal_var=False`, gives a different number.
 
-Previous: [Step-4-Handwashing-Effect](Step-4-Handwashing-Effect)
+Previous: [Step-4-Handwashing-Effect](Step-4-Handwashing-Effect) · Next: [Step-6-Summary](Step-6-Summary)

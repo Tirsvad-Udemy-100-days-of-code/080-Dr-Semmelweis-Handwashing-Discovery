@@ -21,4 +21,4 @@
 - Ujian-t bertanya sama ada perbezaan antara dua purata lebih besar daripada yang diberikan oleh kebetulan; nilai p yang kecil bermaksud ya, dan 0.0000003 jauh di bawah 0.01.
 - `scipy.stats.ttest_ind` secara lalai menganggap varians sama (ujian Student), yang digunakan dalam kuliah; ujian Welch dengan `equal_var=False` memberi nombor yang berbeza.
 
-Sebelumnya: [Step-4-Handwashing-Effect-ms](Step-4-Handwashing-Effect-ms)
+Sebelumnya: [Step-4-Handwashing-Effect-ms](Step-4-Handwashing-Effect-ms) · Seterusnya: [Step-6-Summary-ms](Step-6-Summary-ms)

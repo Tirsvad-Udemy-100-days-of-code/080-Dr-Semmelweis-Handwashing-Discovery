@@ -12,5 +12,6 @@ Dag 80 af Udemys *100 Days of Code*: du bliver Dr Ignaz Semmelweis, læge på Wi
 | [Trin 3: De årlige data opdelt efter klinik](Step-3-Clinic-Split-da) | Hvilken klinik var travlest, og hvilken var farligst? |
 | [Trin 4: Effekten af håndvask](Step-4-Handwashing-Effect-da) | Nedsatte håndvask andelen af kvinder, der døde? |
 | [Trin 5: Fordelinger og statistisk signifikans](Step-5-Distributions-da) | Er faldet i dødeligheden reelt eller tilfældigt? |
+| [Trin 6: Læringspunkter og opsummering](Step-6-Summary-da) | Hvad lærte dag 80 dig, og hvad siger data om håndvask? |
 
 Opgavens spørgsmål: ændrede det i 1847, at lægerne vaskede hænder, hvor mange kvinder der døde ved fødsel, og er ændringen mere end tilfældighed?

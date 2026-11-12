@@ -21,4 +21,4 @@
 - En t-test spørger, om forskellen mellem to gennemsnit er større, end tilfældigheder kan give; en lille p-værdi siger, at den er, og 0,0000003 er langt under 0,01.
 - `scipy.stats.ttest_ind` antager som standard ens varians (Students test), hvilket forelæsningen bruger; Welchs test med `equal_var=False` giver et andet tal.
 
-Forrige: [Step-4-Handwashing-Effect-da](Step-4-Handwashing-Effect-da)
+Forrige: [Step-4-Handwashing-Effect-da](Step-4-Handwashing-Effect-da) · Næste: [Step-6-Summary-da](Step-6-Summary-da)

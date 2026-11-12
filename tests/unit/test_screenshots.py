@@ -2,6 +2,15 @@
 
 from pathlib import Path
 
+from semmelweis import constants
+from semmelweis.domain.handwashing import (
+    add_pct_deaths_monthly,
+    average_rate_before_after,
+    improvement_factor,
+    split_before_after,
+)
+from semmelweis.domain.significance import two_sample_t_test
+from semmelweis.infrastructure.csv_loader import load_monthly
 from semmelweis.presentation import screenshots
 
 
@@ -36,6 +45,43 @@ def test_step_5_distributions_draws_three_axes_with_legends() -> None:
     assert len(fig.axes) == 3
     assert fig.axes[1].get_legend() is not None
     assert fig.axes[2].get_legend() is not None
+
+
+def test_step_6_summary_draws_panel_and_series() -> None:
+    """@brief Step 6 draws the result panel and the monthly series."""
+    fig = screenshots.step_6_summary()
+    assert len(fig.axes) == 2
+    assert len(fig.axes[1].lines) >= 2
+
+
+def test_summary_lines_match_domain_values() -> None:
+    """@brief The summary text holds the values the domain computes."""
+    monthly = load_monthly()
+    before_rate, after_rate = average_rate_before_after(monthly)
+    data = add_pct_deaths_monthly(monthly)
+    before, after = split_before_after(data)
+    result = two_sample_t_test(
+        before[constants.COL_PCT_DEATHS], after[constants.COL_PCT_DEATHS]
+    )
+    text = "\n".join(screenshots.summary_lines(monthly))
+    assert f"{before_rate:.2f}%" in text
+    assert f"{after_rate:.2f}%" in text
+    assert f"{improvement_factor(before_rate, after_rate):.1f}x" in text
+    assert f"{result.statistic:.2f}" in text
+    assert f"{result.p_value:.2e}" in text
+
+
+def test_step_6_summary_shows_summary_text() -> None:
+    """@brief The figure shows the heading and the result lines."""
+    fig = screenshots.step_6_summary()
+    texts = [t.get_text() for t in fig.axes[0].texts]
+    assert constants.SUMMARY_HEADING in texts
+    assert any("t statistic" in t for t in texts)
+
+
+def test_steps_include_summary() -> None:
+    """@brief Step 6 is registered under its name."""
+    assert "step-6-summary" in screenshots.STEPS
 
 
 def test_steps_include_distributions() -> None:
